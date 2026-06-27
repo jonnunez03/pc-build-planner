@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>PC Build Planner</title>
+
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <p class="site-logo">PC Build Planner</p>
+    </header>
+
+    <main class="app">
+      <!-- Home Screen -->
+      <section id="homeScreen" class="screen">
+        <p class="eyebrow">Build with confidence.</p>
+
+        <h1>Find a starting point for your next PC build.</h1>
+
+        <p class="intro-text">
+          PC Build Planner helps beginner and intermediate users plan a custom
+          PC without getting overwhelmed by parts, compatibility, and budget
+          decisions.
+        </p>
+
+        <button class="primary-btn" type="button" data-next="budgetScreen">
+          Start Planner
+        </button>
+      </section>
+
+      <!-- Budget Screen -->
+      <section id="budgetScreen" class="screen" hidden>
+        <p class="step-label">Step 1 of 5</p>
+
+        <h2>What is your max budget?</h2>
+
+        <p class="screen-description">
+          Enter the most you want to spend on the full PC build.
+        </p>
+
+        <label for="maxBudget">Max budget</label>
+        <input
+          id="maxBudget"
+          name="maxBudget"
+          type="number"
+          placeholder="1200"
+        />
+
+        <div class="button-row">
+          <button class="secondary-btn" type="button" data-back="homeScreen">
+            Back
+          </button>
+
+          <button
+            class="primary-btn"
+            type="button"
+            data-next="budgetRangeScreen"
+          >
+            Next
+          </button>
+        </div>
+      </section>
+
+      <!-- Budget Range Screen -->
+      <section id="budgetRangeScreen" class="screen" hidden>
+        <p class="step-label">Step 2 of 5</p>
+
+        <h2>Select your budget range.</h2>
+
+        <p class="screen-description">
+          This helps the planner keep the recommendation realistic.
+        </p>
+
+        <div class="option-group">
+          <label>
+            <input type="radio" name="budgetRange" value="Under $800" />
+            Under $800
+          </label>
+
+          <label>
+            <input type="radio" name="budgetRange" value="$800 - $1200" />
+            $800 - $1200
+          </label>
+
+          <label>
+            <input type="radio" name="budgetRange" value="$1200 - $1600" />
+            $1200 - $1600
+          </label>
+
+          <label>
+            <input type="radio" name="budgetRange" value="$1600+" />
+            $1600+
+          </label>
+        </div>
+
+        <div class="button-row">
+          <button class="secondary-btn" type="button" data-back="budgetScreen">
+            Back
+          </button>
+
+          <button class="primary-btn" type="button" data-next="useCaseScreen">
+            Next
+          </button>
+        </div>
+      </section>
+
+      <!-- Use Case Screen -->
+      <section id="useCaseScreen" class="screen" hidden>
+        <p class="step-label">Step 3 of 5</p>
+
+        <h2>What will you mainly use this PC for?</h2>
+
+        <p class="screen-description">Choose the main purpose of your build.</p>
+
+        <div class="option-group">
+          <label>
+            <input type="radio" name="useCase" value="Gaming" />
+            Gaming
+          </label>
+
+          <label>
+            <input type="radio" name="useCase" value="Streaming" />
+            Streaming
+          </label>
+
+          <label>
+            <input type="radio" name="useCase" value="School / Coding" />
+            School / Coding
+          </label>
+
+          <label>
+            <input type="radio" name="useCase" value="Content Creation" />
+            Content Creation
+          </label>
+        </div>
+
+        <div class="button-row">
+          <button
+            class="secondary-btn"
+            type="button"
+            data-back="budgetRangeScreen"
+          >
+            Back
+          </button>
+
+          <button
+            class="primary-btn"
+            type="button"
+            data-next="performanceScreen"
+          >
+            Next
+          </button>
+        </div>
+      </section>
+
+      <!-- Performance Screen -->
+      <section id="performanceScreen" class="screen" hidden>
+        <p class="step-label">Step 4 of 5</p>
+
+        <h2>What performance goal matters most?</h2>
+
+        <p class="screen-description">
+          Pick the main goal you care about for this build.
+        </p>
+
+        <div class="option-group">
+          <label>
+            <input type="radio" name="performanceGoal" value="Budget / Value" />
+            Budget / Value
+          </label>
+
+          <label>
+            <input type="radio" name="performanceGoal" value="Max FPS" />
+            Max FPS
+          </label>
+
+          <label>
+            <input type="radio" name="performanceGoal" value="1440p Gaming" />
+            1440p Gaming
+          </label>
+
+          <label>
+            <input type="radio" name="performanceGoal" value="4K Gaming" />
+            4K Gaming
+          </label>
+        </div>
+
+        <div class="button-row">
+          <button class="secondary-btn" type="button" data-back="useCaseScreen">
+            Back
+          </button>
+
+          <button
+            class="primary-btn"
+            type="button"
+            data-next="prioritiesScreen"
+          >
+            Next
+          </button>
+        </div>
+      </section>
+
+      <!-- Priorities Screen -->
+      <section id="prioritiesScreen" class="screen" hidden>
+        <p class="step-label">Step 5 of 5</p>
+
+        <h2>Choose up to two extra priorities.</h2>
+
+        <p class="screen-description">
+          These help fine tune the recommendation.
+        </p>
+
+        <div class="option-group">
+          <label>
+            <input type="checkbox" name="priorities" value="Quiet Build" />
+            Quiet Build
+          </label>
+
+          <label>
+            <input type="checkbox" name="priorities" value="RGB / Looks" />
+            RGB / Looks
+          </label>
+
+          <label>
+            <input type="checkbox" name="priorities" value="Future Upgrades" />
+            Future Upgrades
+          </label>
+
+          <label>
+            <input type="checkbox" name="priorities" value="Multitasking" />
+            Multitasking
+          </label>
+        </div>
+
+        <div class="button-row">
+          <button
+            class="secondary-btn"
+            type="button"
+            data-back="performanceScreen"
+          >
+            Back
+          </button>
+
+          <button class="primary-btn" type="button" data-next="reviewScreen">
+            Review Choices
+          </button>
+        </div>
+      </section>
+
+      <!-- Review Screen -->
+      <section id="reviewScreen" class="screen" hidden>
+        <h2>Review your choices.</h2>
+
+        <p class="screen-description">
+          Check your answers before generating your recommended build.
+        </p>
+
+        <div class="review-box">
+          <p>
+            <strong>Max Budget:</strong>
+            <span id="reviewBudget">Not selected</span>
+          </p>
+          <p>
+            <strong>Budget Range:</strong>
+            <span id="reviewBudgetRange">Not selected</span>
+          </p>
+          <p>
+            <strong>Main Use:</strong>
+            <span id="reviewUseCase">Not selected</span>
+          </p>
+          <p>
+            <strong>Performance Goal:</strong>
+            <span id="reviewPerformance">Not selected</span>
+          </p>
+          <p>
+            <strong>Extra Priorities:</strong>
+            <span id="reviewPriorities">None selected</span>
+          </p>
+        </div>
+
+        <p class="note">
+          Some choices may require tradeoffs. This recommendation will focus on
+          staying near your budget while matching your main goal.
+        </p>
+
+        <div class="button-row">
+          <button
+            class="secondary-btn"
+            type="button"
+            data-back="prioritiesScreen"
+          >
+            Back
+          </button>
+
+          <button class="primary-btn" type="button" data-next="resultsScreen">
+            Generate Build
+          </button>
+        </div>
+      </section>
+
+      <!-- Results Screen -->
+      <section id="resultsScreen" class="screen" hidden>
+        <h2>Your recommended build</h2>
+
+        <div class="build-summary">
+          <p class="eyebrow">Recommended Build</p>
+
+          <h3 id="buildName">Valor 1440p</h3>
+
+          <p id="buildDescription">
+            A balanced PC build focused on strong performance, value, and a
+            clear upgrade path.
+          </p>
+
+          <p>
+            <strong>Estimated Price:</strong>
+            <span id="buildPrice">$1,350</span>
+          </p>
+          <p>
+            <strong>Performance Goal:</strong>
+            <span id="buildGoal">1440p Gaming</span>
+          </p>
+          <p>
+            <strong>Best For:</strong> <span id="buildBestFor">Gaming</span>
+          </p>
+        </div>
+
+        <div class="button-row">
+          <button class="secondary-btn" type="button" data-back="reviewScreen">
+            Back
+          </button>
+
+          <button class="primary-btn" type="button" data-next="detailsScreen">
+            View Build Details
+          </button>
+        </div>
+      </section>
+
+      <!-- Build Details Screen -->
+      <section id="detailsScreen" class="screen" hidden>
+        <h2>Build details</h2>
+
+        <p class="screen-description">
+          Each part includes an estimated price, a short reason, and a
+          compatibility note.
+        </p>
+
+        <div class="parts-grid">
+          <article class="part-card">
+            <h3>CPU</h3>
+            <p class="part-name">Ryzen 5 7600</p>
+            <p class="part-price">$210</p>
+            <p>Chosen for strong gaming performance and value.</p>
+            <p>
+              <strong>Compatibility Note:</strong> Works with AM5 motherboards.
+            </p>
+          </article>
+
+          <article class="part-card">
+            <h3>GPU</h3>
+            <p class="part-name">Radeon RX 7800 XT</p>
+            <p class="part-price">$500</p>
+            <p>Chosen for strong 1440p gaming performance.</p>
+            <p>
+              <strong>Compatibility Note:</strong> Fits the selected power
+              supply range.
+            </p>
+          </article>
+
+          <article class="part-card">
+            <h3>Motherboard</h3>
+            <p class="part-name">B650 WiFi</p>
+            <p class="part-price">$160</p>
+            <p>Chosen for upgrade support and reliable features.</p>
+            <p>
+              <strong>Compatibility Note:</strong> Compatible with the selected
+              CPU.
+            </p>
+          </article>
+
+          <article class="part-card">
+            <h3>RAM</h3>
+            <p class="part-name">32GB DDR5</p>
+            <p class="part-price">$110</p>
+            <p>Chosen for gaming, school work, and multitasking.</p>
+            <p>
+              <strong>Compatibility Note:</strong> Works with the selected
+              motherboard.
+            </p>
+          </article>
+        </div>
+
+        <p class="note">
+          Prices are estimates and parts are selected from a custom database.
+        </p>
+
+        <div class="button-row">
+          <button class="secondary-btn" type="button" data-back="resultsScreen">
+            Back
+          </button>
+
+          <button class="primary-btn" type="button" data-next="homeScreen">
+            Start Over
+          </button>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
