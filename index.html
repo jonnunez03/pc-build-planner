@@ -37,20 +37,80 @@
       <section id="budgetScreen" class="screen" hidden>
         <p class="step-label">Step 1 of 3</p>
 
-        <h2>What is your max budget?</h2>
+        <h2>What budget range fits your build?</h2>
 
         <p class="screen-description">
-          Enter the most you want to spend on the full PC build. The planner
-          will use this to stay near your budget.
+          Choose the range that best matches what you want to spend. The planner
+          will try to build within this range.
         </p>
 
-        <label for="maxBudget">Max budget</label>
-        <input
-          id="maxBudget"
-          name="maxBudget"
-          type="number"
-          placeholder="1200"
-        />
+        <div class="option-group">
+          <label>
+            <input
+              type="radio"
+              name="budgetChoice"
+              value="900"
+              data-min="0"
+              data-max="900"
+            />
+            Under $900
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="budgetChoice"
+              value="1500"
+              data-min="901"
+              data-max="1500"
+            />
+            $900 - $1,500
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="budgetChoice"
+              value="2000"
+              data-min="1501"
+              data-max="2000"
+            />
+            $1,500 - $2,000
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="budgetChoice"
+              value="3000"
+              data-min="2001"
+              data-max="3000"
+            />
+            $2,000 - $3,000
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="budgetChoice"
+              value="5000"
+              data-min="3001"
+              data-max="5000"
+            />
+            $3,000 - $5,000
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="budgetChoice"
+              value="99999"
+              data-min="5001"
+              data-max="99999"
+            />
+            $5,000+
+          </label>
+        </div>
 
         <div class="button-row">
           <button class="secondary-btn" type="button" data-back="homeScreen">
@@ -69,12 +129,22 @@
 
         <h2>What will you mainly use this PC for?</h2>
 
-        <p class="screen-description">Choose the main purpose of your build.</p>
+        <p class="screen-description">Pick the main reason you want this PC.</p>
 
         <div class="option-group">
           <label>
             <input type="radio" name="useCase" value="Gaming" />
             Gaming
+          </label>
+
+          <label>
+            <input type="radio" name="useCase" value="Streaming" />
+            Streaming
+          </label>
+
+          <label>
+            <input type="radio" name="useCase" value="School / Coding" />
+            School / Coding
           </label>
 
           <label>
@@ -88,8 +158,8 @@
           </label>
 
           <label>
-            <input type="radio" name="useCase" value="Student" />
-            Student
+            <input type="radio" name="useCase" value="Everyday Use" />
+            Everyday Use
           </label>
         </div>
 
@@ -122,18 +192,56 @@
 
         <div class="option-group">
           <label>
+            <input type="radio" name="performanceGoal" value="Budget / Value" />
+            Budget / Value
+          </label>
+
+          <label>
             <input type="radio" name="performanceGoal" value="Max FPS" />
             Max FPS
           </label>
 
           <label>
             <input type="radio" name="performanceGoal" value="1440p Gaming" />
-            1440p
+            1440p Gaming
           </label>
 
           <label>
             <input type="radio" name="performanceGoal" value="4K Gaming" />
-            4K
+            4K Gaming
+          </label>
+
+          <label>
+            <input type="radio" name="performanceGoal" value="Quiet Build" />
+            Quiet Build
+          </label>
+
+          <label>
+            <input type="radio" name="performanceGoal" value="RGB / Looks" />
+            RGB / Looks
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="performanceGoal"
+              value="Future Upgrades"
+            />
+            Future Upgrades
+          </label>
+
+          <label>
+            <input type="radio" name="performanceGoal" value="Multitasking" />
+            Multitasking
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="performanceGoal"
+              value="Content Creation"
+            />
+            Content Creation
           </label>
         </div>
 
@@ -153,6 +261,39 @@
           <label>
             <input type="checkbox" name="priorities" value="Future Upgrades" />
             Future Upgrades
+          </label>
+
+          <label>
+            <input type="checkbox" name="priorities" value="More Storage" />
+            More Storage
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="priorities"
+              value="Better Multitasking"
+            />
+            Better Multitasking
+          </label>
+
+          <label>
+            <input type="checkbox" name="priorities" value="Lower Price" />
+            Lower Price
+          </label>
+
+          <label>
+            <input type="checkbox" name="priorities" value="Streaming Ready" />
+            Streaming Ready
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="priorities"
+              value="Clean / Simple Build"
+            />
+            Clean / Simple Build
           </label>
         </div>
 
@@ -177,7 +318,7 @@
 
         <div class="review-box">
           <p>
-            <strong>Max Budget:</strong>
+            <strong>Budget Choice:</strong>
             <span id="reviewBudget">Not selected</span>
           </p>
           <p>
@@ -261,50 +402,7 @@
           compatibility note.
         </p>
 
-        <div class="parts-grid">
-          <article class="part-card">
-            <h3>CPU</h3>
-            <p class="part-name">Ryzen 5 7600</p>
-            <p class="part-price">$210</p>
-            <p>Chosen for strong gaming performance and value.</p>
-            <p>
-              <strong>Compatibility Note:</strong> Works with AM5 motherboards.
-            </p>
-          </article>
-
-          <article class="part-card">
-            <h3>GPU</h3>
-            <p class="part-name">Radeon RX 7800 XT</p>
-            <p class="part-price">$500</p>
-            <p>Chosen for strong 1440p gaming performance.</p>
-            <p>
-              <strong>Compatibility Note:</strong> Fits the selected power
-              supply range.
-            </p>
-          </article>
-
-          <article class="part-card">
-            <h3>Motherboard</h3>
-            <p class="part-name">B650 WiFi</p>
-            <p class="part-price">$160</p>
-            <p>Chosen for upgrade support and reliable features.</p>
-            <p>
-              <strong>Compatibility Note:</strong> Compatible with the selected
-              CPU.
-            </p>
-          </article>
-
-          <article class="part-card">
-            <h3>RAM</h3>
-            <p class="part-name">32GB DDR5</p>
-            <p class="part-price">$110</p>
-            <p>Chosen for gaming, school work, and multitasking.</p>
-            <p>
-              <strong>Compatibility Note:</strong> Works with the selected
-              motherboard.
-            </p>
-          </article>
-        </div>
+        <div id="partsList" class="parts-grid"></div>
 
         <p class="note">
           Prices are estimates and parts are selected from a custom database.
